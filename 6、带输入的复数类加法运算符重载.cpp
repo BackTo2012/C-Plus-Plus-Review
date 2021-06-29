@@ -12,20 +12,6 @@ public:
 	void Set(double a = 0, double b = 0) {
 		re = a, ig = b;
 	}
-	// double GetReal() {
-	// 	return re;
-	// }
-	// double GetImaginary() {
-	// 	return ig;
-	// }
-	// void Add(Cmycomplex &z) {
-	// 	re = re + z.re, ig = ig + z.ig;
-	// }
-	// Cmycomplex Add(Cmycomplex &z) {
-	// 	Cmycomplex T;
-	// 	T.re = re + z.re, T.ig = ig + z.ig;
-	// 	return T;
-	// }
 	Cmycomplex operator+(Cmycomplex &z) {
 		Cmycomplex T;
 		T.re = re + z.re, T.ig = ig + z.ig;

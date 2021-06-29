@@ -9,20 +9,6 @@ public:
 	void Show() {
 		cout << "(" << re << "+" << ig << "i)";
 	}
-	// double GetReal() {
-	// 	return re;
-	// }
-	// double GetImaginary() {
-	// 	return ig;
-	// }
-	// void Add(Cmycomplex &z) {
-	// 	re = re + z.re, ig = ig + z.ig;
-	// }
-	// Cmycomplex Add(Cmycomplex &z) {
-	// 	Cmycomplex T;
-	// 	T.re = re + z.re, T.ig = ig + z.ig;
-	// 	return T;
-	// }
 	Cmycomplex operator+(Cmycomplex &z) {
 		Cmycomplex T;
 		T.re = re + z.re, T.ig = ig + z.ig;

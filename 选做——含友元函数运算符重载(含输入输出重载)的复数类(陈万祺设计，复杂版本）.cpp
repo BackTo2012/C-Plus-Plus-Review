@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <string>
 //StudybarCommentEnd
-
 using namespace std;
 class ComplexNumber
 {
@@ -39,7 +38,13 @@ private:
 	double re, ig;
 };
 istream & operator>> (istream &in, ComplexNumber &z) {
-	in >> z.re >> z.ig;
+	string s;
+	in >> s;
+	int pos = s.find("+", 0);
+	string sTmp = s.substr(0, pos); //分离出代表实部的字符串
+	z.re = atof(sTmp.c_str());//atof库函数能将const char*指针指向的内容转换成 float
+	sTmp = s.substr(pos + 1, s.length() - pos - 2); //分离出代表虚部的字符串
+	z.ig = atof(sTmp.c_str());
 	return in;
 }
 ostream & operator<< (ostream &out, const ComplexNumber &z) {
@@ -50,10 +55,21 @@ ostream & operator<< (ostream &out, const ComplexNumber &z) {
 	}
 	else
 	{
-		out << setprecision(2) << z.re << "+" << setprecision(2) << z.ig << "i" << endl;
+		if (z.ig < 0)
+			out << setprecision(2) << z.re  << setprecision(2) << z.ig << "i" << endl;
+		else
+			out << setprecision(2) << z.re << " + " << setprecision(2) << z.ig << "i" << endl;
 	}
 	return out;
 }
+
+
+
+
+
+
+
+
 
 //StudybarCommentBegin
 void CN() { //ComplexNumber
