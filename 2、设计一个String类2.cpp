@@ -81,11 +81,11 @@ String& String::operator=( const String &t ) {
 
 };
 String& String::operator+=( const String &t ) {
-    String temp = *this;
-    sPtr = new char[length + t.length + 1];
-    // strcat(sPtr, temp);
-    strcat(sPtr, t.sPtr);
-    // return *this;
+    length += t.length + 1;
+    char *temp = new char[length];
+    strcpy(temp, sPtr);
+    strcat(temp, t.sPtr);
+    sPtr = temp;
     return *this;
 };
 
